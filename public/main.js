@@ -36,11 +36,10 @@ $(".update").on("click", function (evt){
     }
     else{
       
-       console.log(document.querySelector("#workout_now").value);
-        let date = evt.target.parentElement.date.value;
-        let bodyPart = evt.target.parentElement.bodypartSelect.value;
-        let workout = evt.target.parentElement.workout.value;
-        let Reps_Interval = evt.target.parentElement.Reps_Interval.value;
+        let date = evt.target.parentElement.date_now.value;
+        let bodyPart = evt.target.parentElement.bodypartSelect_now.value;
+        let workout = evt.target.parentElement.workout_now.value;
+        let Reps_Interval = evt.target.parentElement.Reps_Interval_now.value;
         
 
         // Send PUT Request here
