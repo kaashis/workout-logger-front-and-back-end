@@ -30,9 +30,7 @@ app.use(express.static("public"));
 //to read JSON
 app.use(bodyParser.json());
 
-app.get("/Aashis",(req,res)=>{
-  res.send({key:"abc"})
-})
+
   //DATABASE
   MongoClient.connect(
     "mongodb+srv://db_User:myWorkouts@cluster0.w9kul.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
@@ -47,14 +45,12 @@ app.get("/Aashis",(req,res)=>{
 
       //GET
       app.get("/", (req, res) => {
-        console.log("Routed Here")
         workOutsCollection
           .find()
           .sort({ date: -1 })
           .toArray()
           .then((results) => {
-            res.send({key:"Vslue"})
-            //res.render("index.ejs", { workouts: results });
+            res.render("index.ejs", { workouts: results });
           })
           .catch(console.error);
       });
