@@ -79,7 +79,7 @@ $(".delete").on("click", function (evt) {
     //   if (res.ok) return res.json();
     // })
     .then((data) => {
-      window.location.reload();
+      //window.location.reload();
     });
 
     //document.querySelector("#user_input123").reset();
