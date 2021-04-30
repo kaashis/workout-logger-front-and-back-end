@@ -9,10 +9,35 @@ let id;
 
 $(".update").on("click", function (evt){
      evt.preventDefault();
+     console.log("Here");
     if(evt.target.type==="button"){
-        id = evt.target.value;      
+        id = evt.target.value; 
+        // console.log(document.querySelector("#workout1").value); 
+        // console.log($("#date_now"));     
+            
+        if(localStorage.getItem("bodyPart")){
+          localStorage.removeItem("bodyPart")
+        }
+        if(localStorage.getItem("date")){
+          localStorage.removeItem("date")
+        }
+        if(localStorage.getItem("workout")){
+          localStorage.removeItem("workout")
+        }
+        if(localStorage.getItem("Reps_Interval")){
+          localStorage.removeItem("date")
+        }
+        
+        localStorage.setItem("bodyPart",$(evt.target).attr("bodyPart"))
+        localStorage.setItem("date",$(evt.target).attr("date"))
+        localStorage.setItem("workout",$(evt.target).attr("workout"))
+        localStorage.setItem("Reps_Interval",$(evt.target).attr("Reps_Interval_now"))
+        
+           
     }
     else{
+      
+       console.log(document.querySelector("#workout_now").value);
         let date = evt.target.parentElement.date.value;
         let bodyPart = evt.target.parentElement.bodypartSelect.value;
         let workout = evt.target.parentElement.workout.value;
@@ -35,7 +60,7 @@ $(".update").on("click", function (evt){
           //   if (res.ok) return res.json();
           // })
           .then((response) => {
-            window.location.reload(true);
+            //window.location.reload(true);
           });  
     }
     

@@ -20,8 +20,8 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="./exercise-recommendations/exercise-recommendations.html">Workout Planner</a></li>
+            <li><a href="./calculator/calculator.html">Calculator</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -110,6 +110,7 @@
         <!-- GET -->
                 <!-- Loop through workouts -->
             <% if (workouts.length==0) { %>
+                    <p></p>
                     <div class="alert alert-warning" role="alert">
                       <strong>No Workouts found!</strong> Please use the <strong>"Add Workouts"</strong> button to add your workout.
                     </div>
@@ -137,7 +138,8 @@
                             <td><%= workouts[i].workout %></td>
                             <td><%= workouts[i].Reps_Interval %></td>
                             <td><button type="submit" class="delete btn btn-danger" value=<%= workouts[i]._id %>>Delete Workout</button></td> 
-                            <td><button type="button" class="update btn btn-success" data-toggle="modal" data-target="#myModal_update" value=<%= workouts[i]._id %>>Update Workout</button>
+                            <td><button type="button" class="update btn btn-success"  data-toggle="modal" data-target="#myModal_update" date=<%= workouts[i].date %> workout=<%= workouts[i].workout %> bodyPart=<%= workouts[i].bodyPart %> Reps_interval=<%= workouts[i].Reps_interval %>>Update Workout</button>
+                        
                             
                             <!-- Modal -->
                                               <div id="myModal_update" class="modal fade" role="dialog">
@@ -155,20 +157,20 @@
                                                           <form id="user_input" action="/workouts" method="POST" >
                                                             <div class="form-group">
                                                                 <label for="date"><strong>Date</strong></label>
-                                                                <input type="date" class="form-control" id="date" placeholder="Enter the Date for the activity" name="date" required>
+                                                                <input type="date" class="form-control" id="date_now" placeholder="Enter the Date for the activity" name="date" required>
                                                               </div>
                                                           <div class="form-group">
                                                                 <label for="bodypartSelect"><strong>Body Part</strong></label>
-                                                                <input type="text" class="form-control" id="bodypartSelect" placeholder="Enter the Body Part you worked on" name="bodyPart" required>
+                                                                <input type="text" class="form-control" id="bodypartSelect_now" placeholder="Enter the Body Part " name="bodyPart" required>
                                                               </div>
                                                               <div class="form-group">
                                                                 <label for="workout"><strong>Exercise</strong></label>
-                                                                <input type="text" class="form-control" id="workout" placeholder="Enter the type of exercise performed" name="workout" valeu=<%= workouts[i].workout %> required>
+                                                                <input type="text" class="form-control" id="workout_now" placeholder="Enter the type of exercise performed" name="workout_now" required>
                                                               </div>
                                                             
                                                               <div class="form-group">
                                                                 <label for="Reps_Interval"><strong>Reps/Duration</strong></label>
-                                                                <textarea type="text" class="form-control" id="Reps_Interval" rows="3" placeholder="Enter the repetitions or duration of the exercise" name="Reps_Interval" required></textarea>
+                                                                <textarea type="text" class="form-control" id="Reps_Interval_now" rows="3" placeholder="Enter the repetitions or duration of the exercise" name="Reps_Interval_now" required></textarea>
                                                               </div>
                                                               <button type="submit" class="update" value=<%= workouts[i]._id%>>Update Workout</button>
                                                           </form>          
@@ -204,15 +206,15 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="https://r9t5u7b9.rocketcdn.me/wp-content/uploads/2017/04/workout-quotes-body.jpg" alt="Quote 1" style="width:100%;">
+        <img src="https://r9t5u7b9.rocketcdn.me/wp-content/uploads/2017/04/workout-quotes-body.jpg" alt="Quote 1" style=" height:800px; width:100%;">
       </div>
 
       <div class="item">
-        <img src="https://r9t5u7b9.rocketcdn.me/wp-content/uploads/2017/04/workout-quotes-push.jpg" alt="Quote 2" style="width:100%;">
+        <img src="https://r9t5u7b9.rocketcdn.me/wp-content/uploads/2017/04/workout-quotes-push.jpg" alt="Quote 2" style="height:800px; width:100%;">
       </div>
     
       <div class="item">
-        <img src="https://r9t5u7b9.rocketcdn.me/wp-content/uploads/2017/04/workoout-quote-selfdiscipline.png" alt="Quote 3" style="width:100%;">
+        <img src="https://r9t5u7b9.rocketcdn.me/wp-content/uploads/2017/04/workoout-quote-selfdiscipline.png" alt="Quote 3" style="height:800px; width:100%;">
       </div>
     </div>
 
@@ -233,5 +235,13 @@
 
 
         <script src="/main.js"></script>
+        <script>
+        if($("#myModal_update")){
+          $("#bodypartSelect_now").attr("value", localStorage.getItem("bodyPart"))
+          $("#date_now").attr("value", localStorage.getItem("date"))
+          $("#workout_now").attr("value", localStorage.getItem("workout"))
+          $("#Reps_Interval_now").attr("value", localStorage.getItem("Reps_Interval_now"))
+        }
+        </script>
     <body>
 </html>

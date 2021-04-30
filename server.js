@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const MongoClient = require("mongodb").MongoClient;
-
 ObjectId = require("mongodb").ObjectID;
 const moment = require("moment");
 
@@ -31,16 +30,6 @@ app.use(express.static("public"));
 //to read JSON
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
-  workOutsCollection
-    .find()
-    .sort({ date: -1 })
-    .toArray()
-    .then((results) => {
-      res.render("index.ejs");
-    })
-    .catch(console.error);
-});
 
   //DATABASE
   MongoClient.connect(
