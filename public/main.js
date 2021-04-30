@@ -9,7 +9,6 @@ let id;
 
 $(".update").on("click", function (evt){
      evt.preventDefault();
-     console.log("Here");
     if(evt.target.type==="button"){
         id = evt.target.value; 
         // console.log(document.querySelector("#workout1").value); 
@@ -60,7 +59,7 @@ $(".update").on("click", function (evt){
           //   if (res.ok) return res.json();
           // })
           .then((response) => {
-            //window.location.reload(true);
+            window.location.reload(true);
           });  
     }
     
