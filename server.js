@@ -31,6 +31,17 @@ app.use(express.static("public"));
 //to read JSON
 app.use(bodyParser.json());
 
+app.get("/", (req, res) => {
+  workOutsCollection
+    .find()
+    .sort({ date: -1 })
+    .toArray()
+    .then((results) => {
+      res.render("index.ejs", { workouts: results });
+    })
+    .catch(console.error);
+});
+
   //DATABASE
   MongoClient.connect(
     "mongodb+srv://db_User:myWorkouts@cluster0.w9kul.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
