@@ -37,7 +37,7 @@ app.get("/", (req, res) => {
     .sort({ date: -1 })
     .toArray()
     .then((results) => {
-      res.render("index.ejs", { workouts: results });
+      res.render("index.ejs");
     })
     .catch(console.error);
 });
