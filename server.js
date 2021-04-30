@@ -45,12 +45,14 @@ app.use(bodyParser.json());
 
       //GET
       app.get("/", (req, res) => {
+        console.log("Routed Here")
         workOutsCollection
           .find()
           .sort({ date: -1 })
           .toArray()
           .then((results) => {
-            res.render("index.ejs", { workouts: results });
+            res.send({key:"Vslue"})
+            //res.render("index.ejs", { workouts: results });
           })
           .catch(console.error);
       });
