@@ -8,8 +8,14 @@ const moment = require("moment");
 
 const app = express();
 
-app.listen(3000, function () {
-  console.log("listening on 3000");
+// app.listen(3000, function () {
+//   console.log("listening on 3000");
+// });
+
+//make our server listen on a port
+const PORT = process.env.PORT || 3000
+app.listen(PORT,(req,res)=>{
+    console.log(`Server listening on PORT: ${PORT}`);
 });
 
 //handles reading data from the form
