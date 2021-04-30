@@ -139,7 +139,7 @@
                             <td><%= workouts[i].workout %></td>
                             <td><%= workouts[i].Reps_Interval %></td>
                             <td><button type="submit" class="delete btn btn-danger" value=<%= workouts[i]._id %>>Delete Workout</button></td> 
-                            <td><button type="button" class="update btn btn-success"  data-toggle="modal" data-target="#myModal_update" date=<%= workouts[i].date %> workout=<%= workouts[i].workout %> bodyPart=<%= workouts[i].bodyPart %> Reps_interval=<%= workouts[i].Reps_interval %>>Update Workout</button>
+                            <td><button type="button" class="update btn btn-success"  data-toggle="modal" data-target="#myModal_update" value=<%= workouts[i]._id %> date=<%= workouts[i].date %> workout=<%= workouts[i].workout %> bodyPart=<%= workouts[i].bodyPart %> Reps_interval=<%= workouts[i].Reps_interval %>>Update Workout</button>
                         
                             
                             <!-- Modal -->
@@ -158,20 +158,20 @@
                                                           <form id="user_input" action="/workouts" method="POST" >
                                                             <div class="form-group">
                                                                 <label for="date"><strong>Date</strong></label>
-                                                                <input type="date" class="form-control" id="date_now" placeholder="Enter the Date for the activity" name="date" required>
+                                                                <input type="date" class="form-control" id="date" placeholder="Enter the Date for the activity" name="date" required>
                                                               </div>
                                                           <div class="form-group">
                                                                 <label for="bodypartSelect"><strong>Body Part</strong></label>
-                                                                <input type="text" class="form-control" id="bodypartSelect_now" placeholder="Enter the Body Part " name="bodyPart" required>
+                                                                <input type="text" class="form-control" id="bodypartSelect" placeholder="Enter the Body Part " name="bodyPart" required>
                                                               </div>
                                                               <div class="form-group">
                                                                 <label for="workout"><strong>Exercise</strong></label>
-                                                                <input type="text" class="form-control" id="workout_now" placeholder="Enter the type of exercise performed" name="workout_now" required>
+                                                                <input type="text" class="form-control" id="workout" placeholder="Enter the type of exercise performed" name="workout" required>
                                                               </div>
                                                             
                                                               <div class="form-group">
                                                                 <label for="Reps_Interval"><strong>Reps/Duration</strong></label>
-                                                                <textarea type="text" class="form-control" id="Reps_Interval_now" rows="3" placeholder="Enter the repetitions or duration of the exercise" name="Reps_Interval_now" required></textarea>
+                                                                <textarea type="text" class="form-control" id="Reps_Interval" rows="3" placeholder="Enter the repetitions or duration of the exercise" name="Reps_Interval_now" required></textarea>
                                                               </div>
                                                               <button type="submit" class="update" value=<%= workouts[i]._id%>>Update Workout</button>
                                                           </form>          
