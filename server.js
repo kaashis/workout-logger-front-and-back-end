@@ -30,7 +30,9 @@ app.use(express.static("public"));
 //to read JSON
 app.use(bodyParser.json());
 
-
+app.get("/Aashis",(req,res)=>{
+  res.send({key:"abc"})
+})
   //DATABASE
   MongoClient.connect(
     "mongodb+srv://db_User:myWorkouts@cluster0.w9kul.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
